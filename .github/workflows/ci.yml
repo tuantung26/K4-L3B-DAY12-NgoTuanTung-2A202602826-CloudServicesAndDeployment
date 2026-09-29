@@ -1,0 +1,48 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pytest httpx fakeredis
+
+      - name: Build Docker image
+        run: |
+          docker build -t day12-agent:test .
+
+      - name: Run tests
+        env:
+          REDIS_URL: fake://
+          AGENT_API_KEY: test-key-123
+        run: |
+          pytest tests/ -v -m "not docker" --ignore=tests/test_cp5.py
+
+  deploy:
+    needs: test
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to Cloud
+        env:
+          DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+        run: |
+          echo "Deploying to production..."
+          # Lệnh deploy thực tế sẽ nằm ở đây
