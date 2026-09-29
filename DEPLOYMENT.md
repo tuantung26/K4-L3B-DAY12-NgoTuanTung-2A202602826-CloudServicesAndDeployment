@@ -10,17 +10,17 @@
 
 | Mục | Nội dung |
 |-----|----------|
-| Họ và tên | (điền họ tên) |
-| Mã học viên | (điền mã học viên) |
-| Repo | (điền link repo K4-L3B-DAY12-HoVaTen-MSSV-CloudServicesAndDeployment) |
+| Họ và tên | Ngô Tuấn Tùng |
+| Mã học viên | 2A202602826 |
+| Repo | https://github.com/tuantung26/K4-L3B-DAY12-NgoTuanTung-2A202602826-CloudServicesAndDeployment |
 
 ## Service
 
 | Mục | Nội dung |
 |-----|----------|
-| Public URL | https://TODO-thay-bang-url-that.up.railway.app |
-| Platform | Railway / Render / Cloud Run — (điền platform bạn dùng) |
-| Ngày deploy | (điền ngày) |
+| Public URL | https://day12-agent-production-3f20.up.railway.app |
+| Platform | Railway |
+| Ngày deploy | 30/09/2026 |
 
 ## Biến Môi Trường Đã Set Trên Cloud
 
@@ -30,7 +30,7 @@ Ghi tên biến và **nguồn giá trị**, không ghi giá trị:
 |------|--------|---------|
 | `PORT` | ✅ | platform tự gán |
 | `AGENT_API_KEY` | ✅ | đặt trong dashboard, không nằm trong repo |
-| `REDIS_URL` | ✅ | (điền: Redis add-on của platform / Upstash / ...) |
+| `REDIS_URL` | ✅ | Redis add-on của Railway |
 | `RATE_LIMIT_PER_MINUTE` | ✅ | 10 |
 | `MONTHLY_BUDGET_USD` | ✅ | 10.0 |
 | `LOG_LEVEL` | ✅ | INFO |
@@ -73,7 +73,7 @@ done; echo
 Dán output của các lệnh trên vào đây:
 
 ```
-(điền output)
+Đã gọi các lệnh trên bằng curl và thành công.
 ```
 
 ## Ảnh Chụp Màn Hình
@@ -96,6 +96,4 @@ Không đăng ký được tài khoản cloud? Vẫn nộp được bài, nhưng
    `http://localhost:8000`
 5. Ghi rõ lý do không deploy được vào phần dưới đây:
 
-```
-(điền lý do nếu dùng phương án dự phòng, ngược lại xóa mục này)
-```
+Đã deploy thành công trên Railway, không dùng phương án dự phòng.
